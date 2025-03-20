@@ -3,6 +3,7 @@
 use App\Http\Controllers\ComputadoraController;
 use App\Http\Controllers\PuertaController;
 use App\Http\Controllers\UsuarioController;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,8 @@ Route::get("/saludar/{nombre?}",function ($nombre=""){
 
 Route::get('login',[PuertaController::class, 'login']);
 Route::post('validar',[PuertaController::class, 'validar'])->name('puerta.validar');
-
+Route::get('register',[UsuarioController::class,'register'])->name('register');
+Route::post('register',[UsuarioController::class,'store'])->name('register.store');
 
 //Route Model Binding
 //CRUD
